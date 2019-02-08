@@ -1,0 +1,44 @@
+<div class="fondoprincipal">
+  <app-navbar [cantidad2]="cantidad2" [mostrar]="mostrar"></app-navbar>
+  <div class="contenedor white">
+      <div class="row busqueda">
+        <div class="col s8">
+          <h5>Catálogo de productos</h5>
+        </div>
+        <div class="col s4">
+          <div class="row">
+            <div class="input-field col s11">
+              <i class="material-icons prefix">search</i>
+              <input type="text" [(ngModel)]='buscar'>
+              <label for="buscar">¿Que estas Buscando?</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row alto">
+        <ul>
+          <li *ngFor="let item of catalogo | datafilter: buscar | orderBy: orden">
+            <div class="col s3">
+              <div class="card">
+                <div class="card-image">
+                  <img class="responsive-img" src="../../assets/{{item.imagen}}">
+                </div>
+                <div class="card-content">
+                  <span class="card-title">{{item.nombre}}</span>
+                  <p>Precio: $ {{item.precio}}</p>
+                  <p>Unidades disponibles: {{item.disponible ? item.disponible : 'Agotado'}}</p>
+                </div>
+                <div class="row">
+                  <div class="card-action">
+                    <div class="col s4"><button class="btn-small blue darken-3" routerLink="/vistadetallada" (click)="ver(item.nombre,item.imagen,item.precio,item.disponible,item.descripcion)">Ver Mas</button></div>
+                    <div class="col s4"><button class="btn-small yellow darken-3" (click)="addCompra(item.id,item.nombre,item.imagen,item.precio,item.disponible,cantidad.value)">Añadir</button></div>
+                    <div class="col s4"><input type="number" min="1" value="1" #cantidad></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+  </div>
+</div>

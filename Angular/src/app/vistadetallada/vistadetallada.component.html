@@ -1,0 +1,21 @@
+<div class="fondoprincipal">
+  <app-navbar></app-navbar>
+
+  <div class="contenedor white">
+    <h3>{{nombre}}</h3>
+    <div class="row">
+      <div class="col s6">
+        <img class="responsive-img" src="../../assets/{{imagen}}" alt="">
+      </div>
+      <div class="col s6">
+        <h5>Precio: {{precio}}</h5>
+        <h5>Unidades Disponibles: {{disponible}}</h5>
+        <h5>Descripcion:</h5>
+        <p>{{descripcion}}</p>
+        <div class="boton">
+          <button class="waves-effect waves-light btn grey lighten-1" routerLink="/home">Atras</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
